@@ -49,14 +49,26 @@ function atualizar(valor) {
             border: 0,
             padding: 0,
             // O estilo top e left abaixo posiciona a marca do plumo conforme a posição do dispositivo móvel
-            top: ((Dimensions.get('window').height / 2)*0.885),
-            left: ((Dimensions.get('window').width / 2)*0.873),
-            width: 40.0,
+            top: ((Dimensions.get('window').height / 2)*0.885),            
+            width: 400.0,
             height: 40.0,
             borderWidth: 1,
+            borderStyle: 'dashed',
             borderColor: 'black',
-            borderRadius: 20.0,
-            backgroundColor: 'lightblue',
+          }}
+        />
+        <View
+          style={{
+            position: 'absolute',
+            border: 0,
+            padding: 0,
+            // O estilo top e left abaixo posiciona a marca do plumo conforme a posição do dispositivo móvel
+            left: ((Dimensions.get('window').width / 2)*0.89),
+            width: 40.0,
+            height: 800.0,
+            borderWidth: 1,
+            borderStyle: 'dashed',
+            borderColor: 'black',
           }}
         />
       <View
@@ -64,13 +76,27 @@ function atualizar(valor) {
             position: 'absolute',
             border: 0,
             padding: 0,
-            // O estilo top e left abaixo posiciona a marca do plumo conforme a posição do dispositivo móvel
+            // O estilo top e left abaixo posiciona a marca do plumo conforme a posição do dispositivo móvel no eixo Y
             top: ((Dimensions.get('window').height / 2)*0.9) + atualizar(y) * 300,
+            left: ((Dimensions.get('window').width / 2)*0.9),
+            width: 36.0,
+            height: 36.0,
+            borderRadius: 18.0,
+            backgroundColor: 'blue',
+          }}
+        />
+        <View
+          style={{
+            position: 'absolute',
+            border: 0,
+            padding: 0,
+            // O estilo top e left abaixo posiciona a marca do plumo conforme a posição do dispositivo móvel no eixo X
+            top: ((Dimensions.get('window').height / 2)*0.89),
             left: ((Dimensions.get('window').width / 2)*0.9) - atualizar(x) * 150,
-            width: 30.0,
-            height: 30.0,
-            borderRadius: 15.0,
-            backgroundColor: 'white',
+            width: 36.0,
+            height: 36.0,
+            borderRadius: 18.0,
+            backgroundColor: 'yellow',
           }}
         />        
       <Text style={styles.titulo}>
@@ -92,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'darkturquoise',
   },
   titulo: {
-    textAlign: 'center',
+    textAlign: 'left',
     textAlignVertical: 'top',
     marginTop: 30,
     color: 'yellow',
@@ -100,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   posicao: {
-    textAlign: 'center',
+    textAlign: 'left',
     textAlignVertical: 'top',
     marginTop: 10,
     fontSize: 20,
