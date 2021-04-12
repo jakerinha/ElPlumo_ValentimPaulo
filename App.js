@@ -135,13 +135,24 @@ export default function App() {
         }}
       />
 
-      {atualizar(y) > 0 || atualizar(y) < 0 && (animacao(1).start())}
+
+      
+      {/* Abaixo é um bloco a ser executado de forma condicional,
+        * assim ele só é executado caso atenda as condições contidas antes do &&.
+        * Como a intenção é executar a animação sem a necessidade de clicar em algo, logo
+        * precisamos fazer isto em "tempo de execução".
+        * */
+      atualizar(y) > 0 || atualizar(y) < 0 && (animacao(1).start())}
+      
       {atualizar(x) > 0 || atualizar(x) < 0 && (animacao(1).start())}
 
       <NivelHorizontal eixoX={atualizar(x)} animatedValue={animatedValue} />
       <NivelVertical eixoY={atualizar(y)} animatedValue={animatedValue} />
 
-      {atualizar(y) == 0 && (animacao(1).reset(), animacao(1).stop())}
+      {/* Aqui segue o mesmo exemplo do bloco acima, todavia mudando o resultado!
+        * Ocorre um reinicio da animação e a sua parada; evitando de ser executada de forma 
+        * contínua.
+        * */atualizar(y) == 0 && (animacao(1).reset(), animacao(1).stop())}
       {atualizar(x) == 0 && (animacao(1).reset(), animacao(1).stop())}
 
       <Text style={styles.titulo}>
