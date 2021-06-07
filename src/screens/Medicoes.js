@@ -4,7 +4,7 @@ import {withTheme, List, Avatar} from 'react-native-paper'
 import Medicao from './Medicao'
 import {BACKEND} from '../constants'
 
-export default function Medicoes({data, navigation}){
+ function Medicoes({data, navigation}){
     
     const [medicoes, setMedicoes] = useState([])
     
@@ -24,10 +24,9 @@ export default function Medicoes({data, navigation}){
         let url = `${BACKEND}/medicoes`
 
         await fetch(url)
-        .then(response => response.json())
-        .then(data => {
+        .then(response => response.json()).then(data => {
             setMedicoes(data)
-            console.log("Medidas obtidas com sucesso!")
+            //console.log("Medidas obtidas com sucesso!")
         })
         .catch(function (error){
             console.error(`Não foi possivel obter as medidas: ${error.message}`)
@@ -46,7 +45,7 @@ export default function Medicoes({data, navigation}){
         }
 
         setRefreshing(false)
-    },[refreshing])
+    }, [refreshing])
 
     return(
         <View style={{backgroundColor: "#12ffcd", paddingHorizontal: 10, paddingVertical: 20, flex: 1}}>
@@ -87,3 +86,5 @@ const styles = StyleSheet.create({
 }
     
 )
+
+export default withTheme(Medicoes)

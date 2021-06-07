@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View, Text, StyleSheet, Image, Alert, TouchableOpacity, Touchable} from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import {BACKEND} from '../constants'
@@ -7,10 +7,12 @@ import {List, withTheme, Avatar} from 'react-native-paper'
 
 function Medicao({data, navigation}){
     
+    const [excluindo, setExcluindo] = useState(false)
+
     function buttonRight(){
         return(
             <View>
-                <TouchableOpacity style={styles.buttonDelete} onPress={confirmExclusion}>
+                <TouchableOpacity style={styles.buttonDelete} onPress={confirmExclusion()}>
                     <Avatar.Icon size={24} icon="delete" style={{backgroundColor: "#111fdd"}}/>
                     <Text>Excluir</Text>
                 </TouchableOpacity>
@@ -21,7 +23,7 @@ function Medicao({data, navigation}){
     async function confirmExclusion(){
         setExcluindo(true)
         try{
-            Alert.alert('Atenção!', 'Deseja mesmo excluir esta categoria?', [
+            Alert.alert('Atenção!', 'Deseja mesmo excluir esta medida?', [
                 {text: "Não", style:"cancel"},
                 {
                     text: 'Sim',

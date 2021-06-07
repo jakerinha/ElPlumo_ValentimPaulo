@@ -7,13 +7,13 @@ function AdicionaMedicao({ navigation, route }) {
 
     const { data } = route.params
 
-    const [medidaX, setMedidaX] = (data._id === null ? useState(data.x) : useState(data.medidas.medidaX))
+    const [medidaX, setMedidaX] = (data._id === null ? useState(String(data.x)) : useState(data.medidas.medidaX))
 
     //const [medidaX, setMedidaX] = useState(data.x)
     //const [medidaY, setMedidaY] = useState(data.y)
     
 
-    const [medidaY, setMedidaY] = (data._id === null ? useState(data.y) : useState(data.medidas.medidaY))
+    const [medidaY, setMedidaY] = (data._id === null ? useState(String(data.y)) : useState(data.medidas.medidaY))
 
     const [nomeCliente, setNomeCliente] = useState(data.nomeCliente)
 
@@ -41,7 +41,7 @@ function AdicionaMedicao({ navigation, route }) {
 
             let dataAtual = dia + '/' + mes + '/' + ano
 
-            let medicao = { medidas:{medidaX:medidaX, medidaY:medidaY}, nomeCliente: nomeCliente, localMedida: localMedida, dataMedicao: dataAtual, _id: data._id }
+            let medicao = { medidas:{medidaX:Number(medidaX), medidaY:Number(medidaY)}, nomeCliente: nomeCliente, localMedida: localMedida, dataMedicao: dataAtual, _id: data._id }
 
             setSalvandoMedicao(true)
 

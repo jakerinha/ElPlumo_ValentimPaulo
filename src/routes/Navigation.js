@@ -15,7 +15,7 @@ export default function Navigation(){
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Home}/>
                 <Stack.Screen name="Medições" component={Medicoes}/>
-                <Stack.Screen name="AdicionaMedicao" component={AdicionaMedicao} option={{headerShown: false}}/>
+                <Stack.Screen name="AdicionaMedicao" component={AdicionaMedicao}/>
             </Stack.Navigator>
         </NavigationContainer>
 

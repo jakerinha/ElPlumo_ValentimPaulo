@@ -68,8 +68,7 @@ export default function Home({navigation}) {
 
   const [data, setData] = useState({
     x: 0,
-    y: 0,
-    _id: null
+    y: 0
   });
   const [subscription, habilitarUso] = useState(null);
 
@@ -82,9 +81,6 @@ export default function Home({navigation}) {
     );
   };
 
-  const adicionarMedicoes = async(data) => {
-    navigation.navigate('AdicionaMedicao', {data: data})
-  }
 
   //A funçãos abaixo desabilita o acelerômetro
   const _desabilitar
@@ -173,7 +169,7 @@ export default function Home({navigation}) {
         style={styles.fab}
         icon="plus"
         label=""
-        onPress={() => adicionarMedicoes(data)}></FAB>
+        onPress={() => navigation.navigate('AdicionaMedicao', {data: {_id: null, x: x, y:y, nomeCliente: '', localMedida: ''}})}></FAB>
     </SafeAreaView>
   );
 }
